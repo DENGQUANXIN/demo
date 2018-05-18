@@ -20,7 +20,7 @@ class LaunchScreen extends React.Component {
     return (
       <View style={[styles.container, this.props.style]}>
         <Image
-          source={require("../src/img/launchscreen.png")}
+          source={require("../src/images/launchscreen.png")}
           style={styles.image}
         />
       </View>

@@ -13,7 +13,7 @@
     },
     {
         "merged": "/home/Operating/rn/demo/android/app/build/intermediates/res/merged/debug/layout/redbox_item_frame.xml",
-        "source": "/home/Operating/rn/demo/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.52.0/res/layout/redbox_item_frame.xml"
+        "source": "/home/Operating/rn/demo/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.51.0/res/layout/redbox_item_frame.xml"
     },
     {
         "merged": "/home/Operating/rn/demo/android/app/build/intermediates/res/merged/debug/layout/notification_template_lines.xml",
@@ -29,7 +29,7 @@
     },
     {
         "merged": "/home/Operating/rn/demo/android/app/build/intermediates/res/merged/debug/layout/redbox_item_title.xml",
-        "source": "/home/Operating/rn/demo/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.52.0/res/layout/redbox_item_title.xml"
+        "source": "/home/Operating/rn/demo/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.51.0/res/layout/redbox_item_title.xml"
     },
     {
         "merged": "/home/Operating/rn/demo/android/app/build/intermediates/res/merged/debug/layout/notification_template_big_media.xml",
@@ -41,7 +41,7 @@
     },
     {
         "merged": "/home/Operating/rn/demo/android/app/build/intermediates/res/merged/debug/layout/dev_loading_view.xml",
-        "source": "/home/Operating/rn/demo/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.52.0/res/layout/dev_loading_view.xml"
+        "source": "/home/Operating/rn/demo/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.51.0/res/layout/dev_loading_view.xml"
     },
     {
         "merged": "/home/Operating/rn/demo/android/app/build/intermediates/res/merged/debug/layout/abc_action_mode_close_item_material.xml",
@@ -129,7 +129,7 @@
     },
     {
         "merged": "/home/Operating/rn/demo/android/app/build/intermediates/res/merged/debug/layout/fps_view.xml",
-        "source": "/home/Operating/rn/demo/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.52.0/res/layout/fps_view.xml"
+        "source": "/home/Operating/rn/demo/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.51.0/res/layout/fps_view.xml"
     },
     {
         "merged": "/home/Operating/rn/demo/android/app/build/intermediates/res/merged/debug/layout/abc_screen_simple_overlay_action_mode.xml",
@@ -149,7 +149,7 @@
     },
     {
         "merged": "/home/Operating/rn/demo/android/app/build/intermediates/res/merged/debug/layout/redbox_view.xml",
-        "source": "/home/Operating/rn/demo/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.52.0/res/layout/redbox_view.xml"
+        "source": "/home/Operating/rn/demo/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.51.0/res/layout/redbox_view.xml"
     },
     {
         "merged": "/home/Operating/rn/demo/android/app/build/intermediates/res/merged/debug/layout/notification_template_part_chronometer.xml",
