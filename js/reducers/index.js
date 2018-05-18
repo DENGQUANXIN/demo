@@ -2,8 +2,11 @@
 
 import { combineReducers } from 'redux';
 import login from './login';
-import navReducer from './navigator';
 import homeTest from './home';
+import { createNavigationReducer } from 'react-navigation-redux-helpers';
+import AppNavigator from '../pages/navigator';
+
+const navReducer = createNavigationReducer(AppNavigator);
 
 export default {
   login: login,

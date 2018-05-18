@@ -1,7 +1,7 @@
 import {
   HOME_TEST,
-  REQUEST_POSTS,
-  RECEIVE_POSTS
+  REQUEST_POSTS_TEST,
+  RECEIVE_POSTS_TEST
 } from '../actions';
 
 function homeTest(state = {homeText: '没有按按钮', jsonText: '无json内容'}, action) {
@@ -10,15 +10,15 @@ function homeTest(state = {homeText: '没有按按钮', jsonText: '无json内容
       return {
         ...state,
         homeText: '按了按钮'};
-    case REQUEST_POSTS:
+    case REQUEST_POSTS_TEST:
       return {
         ...state,
         jsonText: 'loading'
       }
-    case RECEIVE_POSTS:
+    case RECEIVE_POSTS_TEST:
       return {
         ...state,
-        jsonText: action.jsonText
+        jsonText: action.data
       }
     default:
       return state;

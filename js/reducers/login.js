@@ -1,16 +1,39 @@
 import { combineReducers } from 'redux';
+import {STATES} from '../src/config/const';
 import {
-  LOGIN,
+  REQUEST_POSTS_LOGIN,
+  RECEIVE_POSTS_LOGIN,
   LOGOUT
 } from '../actions/login';
 
-function login(state = {loginText: '登录', isLoggedIn: false}, action) {
-  console.log(LOGOUT);
+function login(state = {loginText: '登录', isLoggedIn: false, loginFailed: false}, action) {
   switch (action.type) {
-    case LOGIN:
-      return {loginText: '登录中', isLoggedIn: true};
+    case REQUEST_POSTS_LOGIN:
+      return {
+        ...state,
+        loginText: '登录中...'
+      };
+    case RECEIVE_POSTS_LOGIN:
+      if(action.state == STATES.success){
+        return {
+          ...state,
+          loginText: '登录',
+          isLoggedIn: true
+        };
+      }else {
+        return {
+          ...state,
+          loginText: '登录',
+          loginFailed: true
+        };
+      }
     case LOGOUT:
-      return {loginText: '登录', isLoggedIn: false};
+      return {
+        ...state,
+        loginText: '登录',
+        isLoggedIn: false,
+        loginFailed: false
+      };
     default:
       return state;
   }
