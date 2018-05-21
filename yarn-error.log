@@ -1,14 +1,14 @@
 Arguments: 
-  /usr/local/bin/node /usr/share/yarn/bin/yarn.js add react-native-amap3d
+  /usr/bin/node /usr/share/yarn/bin/yarn.js add react-native-vector-icons
 
 PATH: 
-  /home/Operating/.pyenv/plugins/pyenv-virtualenv/shims:/home/Operating/.pyenv/shims:/home/Operating/.pyenv/bin:/home/Operating/.pyenv/plugins/pyenv-virtualenv/shims:/home/Operating/.pyenv/shims:/home/Operating/.pyenv/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/home/Operating/.cabal/bin:/home/Operating/.composer/vendor/bin:/home/Operating/.local/bin:/home/Operating/bin:/usr/local/android-studio/bin:/home/Operating/sdk/platform-tools:/opt/genymobile/genymotion:/opt/google/Postman
+  /sbin:/bin:/usr/sbin:/usr/bin
 
 Yarn version: 
   1.3.2
 
 Node version: 
-  10.0.0
+  6.12.2
 
 Platform: 
   linux x64
@@ -26,6 +26,7 @@ npm manifest:
       "prop-types": "^15.6.0",
       "react": "16.2.0",
       "react-native": "0.51.0",
+      "react-native-amap3d": "^1.0.0-beta.1",
       "react-native-vector-icons": "^4.6.0",
       "react-navigation": "^1.0.0-beta.23",
       "react-navigation-redux-helpers": "^1.1.1",
@@ -3600,6 +3601,10 @@ Lockfile:
       shell-quote "^1.6.1"
       ws "^2.0.3"
   
+  react-native-amap3d@^1.0.0-beta.1:
+    version "1.0.0-beta.1"
+    resolved "http://registry.npm.taobao.org/react-native-amap3d/download/react-native-amap3d-1.0.0-beta.1.tgz#1e01a4ae22a77b1cfd9d1afa7fd2a64ca4746a65"
+  
   react-native-dismiss-keyboard@1.0.0:
     version "1.0.0"
     resolved "http://registry.npm.taobao.org/react-native-dismiss-keyboard/download/react-native-dismiss-keyboard-1.0.0.tgz#32886242b3f2317e121f3aeb9b0a585e2b879b49"
@@ -4839,4 +4844,7 @@ Lockfile:
       window-size "0.1.0"
 
 Trace: 
-  Error: EACCES: permission denied, unlink '/home/Operating/rn/demo/node_modules/.bin/acorn'
+  Error: connect ECONNREFUSED 114.55.80.225:443
+      at Object.exports._errnoException (util.js:1020:11)
+      at exports._exceptionWithHostPort (util.js:1043:20)
+      at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1090:14)

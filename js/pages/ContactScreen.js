@@ -7,10 +7,19 @@ import {
 } from 'react-native';
 import { connect } from "react-redux";
 import PropTypes from 'prop-types';
+import { getContactList } from '../actions';
 
 class ContactScreen extends React.Component {
   constructor(props) {
     super(props);
+  }
+
+  propTypes: {
+    sections: PropTypes.string.isRequired
+  }
+
+  componentDidMount() {
+    this.props.dispatch(getContactList())
   }
 
   _renderItem = (info) => {
@@ -18,7 +27,7 @@ class ContactScreen extends React.Component {
     return (
       <TouchableOpacity
         onPress={() => {
-          this.props.navigation.navigate('ArticleDetail', 1)
+          this.props.navigation.navigate('ContactDetail', 1)
         }}>
         <Text style={styles.listText}>{txt}</Text>
       </TouchableOpacity>
@@ -31,11 +40,8 @@ class ContactScreen extends React.Component {
   }
 
   render() {
-    var sections = [
-      { key: "亲友", data: [{ name: "表哥" }, { name: "贝贝" }, { name: "表弟" }, { name: "表姐" }, { name: "表叔" }] },
-      { key: "病友", data: [{ name: "张三" }, { name: "李四" }, { name: "王五" }, { name: "李四" }, { name: "王五" }, { name: "李四" }, { name: "王五" }] }
-    ];
-
+    const { dispatch, sections } = this.props;
+    console.log(sections);
     return (
       <View style={{ flex: 1, backgroundColor: "#EEEEEE" }}>
         <SectionList
@@ -68,4 +74,8 @@ const styles = StyleSheet.create({
   }
 })
 
-export default connect()(ContactScreen);
+const mapStateToProps = (state) => ({
+  sections: state.contact.sections
+});
+
+export default connect(mapStateToProps)(ContactScreen);
