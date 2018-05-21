@@ -1,44 +1,29 @@
 import React from 'react';
 import {
-  Text, View, TouchableOpacity,
+  Text, View,
   StyleSheet, Dimensions
 } from 'react-native';
 import {connect} from 'react-redux';
-import { logout } from '../actions';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-class UserScreen extends React.Component {
+class ContactDetail extends React.Component {
   render() {
-    const {dispatch} = this.props;
-
     return (
       <View style={styles.container}>
         <View style={styles.header}>
           <View style={styles.editIconContainer}>
-            <TouchableOpacity
-              onPress={() => dispatch(logout())}>
-              <Icon style={styles.editIcon} name="logout" size={30} color="#fff" />
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <Icon style={styles.editIcon} name="pencil" size={30} color="#fff" />
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <Icon style={styles.editIcon} name="qrcode" size={30} color="#fff" />
-            </TouchableOpacity>
+            <Icon style={styles.editIcon} name="pencil" size={30} color="#fff" />
+            <Icon style={styles.editIcon} name="star-outline" size={30} color="#fff" />
           </View>
-          <Text style={styles.nameText}>YeYe</Text>
+          <Text style={styles.nameText}>猫眼餐</Text>
         </View>
         <View style={styles.content}>
-          <Text style={styles.infoName}>姓名</Text>
-          <Text style={styles.infoCont}>灯泉星</Text>
           <Text style={styles.infoName}>手机号</Text>
           <Text style={styles.infoCont}>13880694409</Text>
-          <Text style={styles.infoName}>年龄</Text>
-          <Text style={styles.infoCont}>70</Text>
-          <Text style={styles.infoName}>性别</Text>
-          <Text style={styles.infoCont}>男</Text>
-          <Text style={styles.infoName}>相关患病信息</Text>
-          <Text style={styles.infoCont}>糖尿病, 高血压</Text>
+          <Text style={styles.infoName}>关系</Text>
+          <Text style={styles.infoCont}>亲友</Text>
+          <Text style={styles.infoName}>备注</Text>
+          <Text style={styles.infoCont}>孙子</Text>
         </View>
       </View>
     );
@@ -51,14 +36,15 @@ const styles = StyleSheet.create({
   },
   header: {
     flex: 1,
-    backgroundColor: "#00FFCC"
+    backgroundColor: "#009999"
   },
   editIconContainer: {
     flex: 1,
     flexDirection: "row-reverse"
   },
   editIcon: {
-    padding: 10
+    paddingRight: 20,
+    paddingTop: 10
   },
   infoName: {
     marginLeft: 20,
@@ -89,4 +75,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default connect()(UserScreen);
+export default connect()(ContactDetail);

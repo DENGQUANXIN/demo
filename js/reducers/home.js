@@ -21,6 +21,7 @@ function homeTest(state = {homeText: '没有按按钮', jsonText: '无json内容
         jsonText: action.data
       }
     default:
+      console.log(123);
       return state;
   }
 }

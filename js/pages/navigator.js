@@ -5,9 +5,10 @@ import {
   TabBarBottom
 } from 'react-navigation';
 
-import ArticleDetail from './ArticleDetail';
 import ArticlesScreen from './ArticlesScreen';
+import ArticleDetail from './ArticleDetail';
 import ContactScreen from './ContactScreen';
+import ContactDetail from './ContactDetail';
 import HomeScreen from './HomeScreen';
 import UserScreen from './UserScreen';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -83,7 +84,16 @@ const AppNavigator = StackNavigator(
       screen: TabbarNavigator
     },
     ArticleDetail: {
-      screen: ArticleDetail
+      screen: ArticleDetail,
+      navigationOptions:({navigation}) => ({
+        headerTitle:'文章详情'
+      }),
+    },
+    ContactDetail: {
+      screen: ContactDetail,
+      navigationOptions:({navigation}) => ({
+        headerTitle:'联系人详情'
+      }),
     }
   },
   {

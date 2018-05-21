@@ -9,7 +9,7 @@ import {
   TouchableOpacity, Button
 } from 'react-native';
 import { connect } from 'react-redux';
-import { login, LOGIN, logout } from '../actions'
+import { login } from '../actions'
 
 const WIN_WIDTH = Dimensions.get("window").width,
   WIN_HEIGHT = Dimensions.get("window").height;
@@ -22,12 +22,12 @@ class LoginScreen extends React.Component {
       password: ''
     };
   }
-  proTypes: {
+  propTypes: {
     loginText: PropTypes.string.isRequired,
     loginFailed: PropTypes.boolean.isRequired
   }
   render() {
-    const { dispatch, loginText } = this.props;
+    const { dispatch, loginText, loginFailed } = this.props;
     return (
       <View style={styles.container}>
         <View style={styles.title}>
@@ -55,10 +55,10 @@ class LoginScreen extends React.Component {
               ></TextInput>
           </View>
 
-            {this.props.loginFailed ? <Text style={styles.failText}>登录失败，请重试!</Text> : undefined}
+            {loginFailed ? <Text style={styles.failText}>登录失败，请重试!</Text> : undefined}
           <View style={styles.buttonInput}>
             <Button
-              title={this.props.loginText}
+              title={loginText}
               onPress={() => dispatch(login(this.state.account, this.state.password))}
               ></Button>
             <View style={styles.pressTexts}>
