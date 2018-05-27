@@ -6,7 +6,7 @@ import {
   LOGOUT
 } from '../actions/login';
 
-function login(state = {loginText: '登录', isLoggedIn: false, loginFailed: false}, action) {
+function login(state = {loginText: '登录', isLoggedIn: false, loginFailed: false, userInfo: {}}, action) {
   switch (action.type) {
     case REQUEST_POSTS_LOGIN:
       return {
@@ -18,7 +18,8 @@ function login(state = {loginText: '登录', isLoggedIn: false, loginFailed: fal
         return {
           ...state,
           loginText: '登录',
-          isLoggedIn: true
+          isLoggedIn: true,
+          userInfo: action.data
         };
       }else {
         return {

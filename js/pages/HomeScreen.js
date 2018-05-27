@@ -3,27 +3,64 @@ import {
   Text, View,
   TextInput,
   TouchableOpacity,
-  StyleSheet,
-  Dimensions
+  StyleSheet, Picker,
+  Dimensions, Button
 } from 'react-native';
 import { connect } from "react-redux";
 import PropTypes from 'prop-types';
 import {homeTest, logout, getJson} from '../actions';
 import {MapView, Marker} from 'react-native-amap3d';
+import Modal from 'react-native-modalbox';
+import Slider from 'react-native-slider';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const WIN_WIDTH = Dimensions.get("window").width,
   WIN_HEIGHT = Dimensions.get("window").height;
 
 class HomeScreen extends React.Component {
-  propTypes: {
-    homeText: PropTypes.string.isRequired,
-    jsonText: PropTypes.string.isRequired
+  constructor(props){
+    super(props);
+    this.state = {
+      isOpen: false,
+      isDisabled: false,
+      swipeToClose: true,
+      sliderValue: 0.3,
+      contactValue: "male"
+    };
   }
+
+  propTypes: {
+    sections: PropTypes.string.isRequired
+  }
+
   render() {
-    const {dispatch, homeText} = this.props;
+    const {dispatch, sections} = this.props;
+
+    var pickerItems = [];
+    sections[0].data.forEach((value, index, array) => {
+      if (value.isStar === true)
+        pickerItems.push(value);
+    });
+
     return (
       <View style={styles.container}>
+        <Modal style={styles.modal} position={"center"} ref={"modal"} isDisabled={this.state.isDisabled} backdrop={true}>
+          <View style={{flexDirection: "row", width: "100%", justifyContent: "flex-end", padding:10}}>
+            <TouchableOpacity
+            onPress={() => this.refs.modal.close()}>
+              <Icon style={{backgroundColor:"red"}} name="close" size={20} color="#000000" />
+            </TouchableOpacity>
+          </View>
+          <Text style={{fontSize: 20, color: "red", margin: 10}}>确定进行紧急呼救？</Text>
+          <View style={{margin: 10, width: 150}}>
+            <Button title="确定" color="#FF0000"></Button>
+          </View>
+          <View style={{margin: 10, width: 150}}>
+            <Button
+              onPress={() => this.refs.modal.close()}
+              title="取消"></Button>
+          </View>
+        </Modal>
         <View style={styles.mapContainer}>
           <Text style={styles.descText}>当前位置 :</Text>
           <View style={styles.map}>
@@ -55,21 +92,28 @@ class HomeScreen extends React.Component {
         <View style={styles.sosContainer}>
           <View style={styles.divider}></View>
           <View style={styles.sosButton}>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => this.refs.modal.open()}
+              >
               <View style={styles.buttonContainer}>
               <Text style={{fontSize: 18, fontWeight: 'bold', color: "#ffffff"}}>紧急呼救</Text>
               </View>
             </TouchableOpacity>
           </View>
         </View>
-        <View style={styles.starContactContainer}>
-          <Text style={{fontSize: 12, paddingBottom: 5}}>紧急呼救联系人</Text>
-          <View style={styles.startContact}>
-            <Text style={{fontSize: 20, color: "#000000", paddingRight: 30}}>表哥</Text>
-            <TouchableOpacity>
-              <Icon name="pencil" size={22} color="#000" />
-            </TouchableOpacity>
+        <View style={styles.selectContact}>
+          <View style={styles.contactPicker}>
+            <Picker style={{width: WIN_WIDTH*0.5}}
+              selectedValue={this.state.contactValue}
+              onValueChange={
+                (phone) => this.setState({contactValue: phone})
+              } >
+              {pickerItems.map(
+                (item,index) => <Picker.Item label={item.name} value={item.phone}/>
+              )}
+            </Picker>
           </View>
+
         </View>
       </View>
     );
@@ -120,21 +164,24 @@ styles = StyleSheet.create({
     justifyContent: "center",
     backgroundColor: "#FF0000"
   },
-  starContactContainer: {
+  selectContact: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center"
   },
-  startContact: {
-    flexDirection: "row",
-    borderBottomWidth: 1,
-    borderBottomColor: "#EEEEEE"
+  contactPicker: {
+    borderWidth: 2,
+    borderColor: "#000"
+  },
+  modal: {
+    height: 200,
+    width: 300,
+    alignItems: 'center'
   }
 })
 
 const mapStateToProps = (state) => ({
-  homeText: state.home.homeText,
-  jsonText: state.home.jsonText
+  sections: state.contact.sections
 });
 
 export default connect(mapStateToProps)(HomeScreen);

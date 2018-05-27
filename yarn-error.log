@@ -1,17 +1,20 @@
 Arguments: 
-  /usr/bin/node /usr/share/yarn/bin/yarn.js add react-native-vector-icons
+  /usr/local/bin/node /usr/share/yarn/bin/yarn.js remove react-native-qrcode
 
 PATH: 
-  /sbin:/bin:/usr/sbin:/usr/bin
+  /home/Operating/.pyenv/plugins/pyenv-virtualenv/shims:/home/Operating/.pyenv/shims:/home/Operating/.pyenv/bin:/home/Operating/.pyenv/plugins/pyenv-virtualenv/shims:/home/Operating/.pyenv/shims:/home/Operating/.pyenv/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/home/Operating/.cabal/bin:/home/Operating/.composer/vendor/bin:/home/Operating/.local/bin:/home/Operating/bin:/usr/local/android-studio/bin:/home/Operating/sdk/platform-tools:/opt/genymobile/genymotion:/opt/google/Postman
 
 Yarn version: 
-  1.3.2
+  1.6.0
 
 Node version: 
-  6.12.2
+  10.0.0
 
 Platform: 
   linux x64
+
+Trace: 
+  Error: EACCES: permission denied, unlink '/home/Operating/rn/demo/node_modules/.bin/acorn'
 
 npm manifest: 
   {
@@ -27,6 +30,8 @@ npm manifest:
       "react": "16.2.0",
       "react-native": "0.51.0",
       "react-native-amap3d": "^1.0.0-beta.1",
+      "react-native-modalbox": "^1.4.2",
+      "react-native-slider": "^0.11.0",
       "react-native-vector-icons": "^4.6.0",
       "react-navigation": "^1.0.0-beta.23",
       "react-navigation-redux-helpers": "^1.1.1",
@@ -1302,7 +1307,7 @@ Lockfile:
     version "3.3.0"
     resolved "http://registry.npm.taobao.org/crc/download/crc-3.3.0.tgz#fa622e1bc388bf257309082d6b65200ce67090ba"
   
-  create-react-class@^15.5.2:
+  create-react-class@^15.5.2, create-react-class@^15.6.0:
     version "15.6.3"
     resolved "http://registry.npm.taobao.org/create-react-class/download/create-react-class-15.6.3.tgz#2d73237fb3f970ae6ebe011a9e66f46dbca80036"
     dependencies:
@@ -3526,6 +3531,14 @@ Lockfile:
       loose-envify "^1.3.1"
       object-assign "^4.1.1"
   
+  prop-types@^15.5.6:
+    version "15.6.1"
+    resolved "http://registry.npm.taobao.org/prop-types/download/prop-types-15.6.1.tgz#36644453564255ddda391191fb3a125cbdf654ca"
+    dependencies:
+      fbjs "^0.8.16"
+      loose-envify "^1.3.1"
+      object-assign "^4.1.1"
+  
   prr@~1.0.1:
     version "1.0.1"
     resolved "http://registry.npm.taobao.org/prr/download/prr-1.0.1.tgz#d3fc114ba06995a45ec6893f484ceb1d78f5f476"
@@ -3541,6 +3554,10 @@ Lockfile:
   punycode@^2.1.0:
     version "2.1.0"
     resolved "http://registry.npm.taobao.org/punycode/download/punycode-2.1.0.tgz#5f863edc89b96db09074bad7947bf09056ca4e7d"
+  
+  qr.js@0.0.0:
+    version "0.0.0"
+    resolved "http://registry.npm.taobao.org/qr.js/download/qr.js-0.0.0.tgz#cace86386f59a0db8050fa90d9b6b0e88a1e364f"
   
   qs@4.0.0:
     version "4.0.0"
@@ -3620,6 +3637,27 @@ Lockfile:
     resolved "http://registry.npm.taobao.org/react-native-drawer-layout/download/react-native-drawer-layout-1.3.2.tgz#b9740d7663a1dc4f88a61b9c6d93d2d948ea426e"
     dependencies:
       react-native-dismiss-keyboard "1.0.0"
+  
+  react-native-modalbox@^1.4.2:
+    version "1.4.2"
+    resolved "http://registry.npm.taobao.org/react-native-modalbox/download/react-native-modalbox-1.4.2.tgz#818c9354c9b13327ec807c6436e8516b3b419478"
+    dependencies:
+      create-react-class "^15.6.0"
+      prop-types "^15.5.10"
+  
+  react-native-qrcode@^0.2.6:
+    version "0.2.6"
+    resolved "http://registry.npm.taobao.org/react-native-qrcode/download/react-native-qrcode-0.2.6.tgz#dd92f151c118860092af9fa5bc0995f2f9dddb16"
+    dependencies:
+      create-react-class "^15.6.0"
+      prop-types "^15.5.10"
+      qr.js "0.0.0"
+  
+  react-native-slider@^0.11.0:
+    version "0.11.0"
+    resolved "http://registry.npm.taobao.org/react-native-slider/download/react-native-slider-0.11.0.tgz#b68a0bc43c8422b24cd57947cc5ac2bcdb58fadc"
+    dependencies:
+      prop-types "^15.5.6"
   
   react-native-tab-view@^0.0.74:
     version "0.0.74"
@@ -4842,9 +4880,3 @@ Lockfile:
       cliui "^2.1.0"
       decamelize "^1.0.0"
       window-size "0.1.0"
-
-Trace: 
-  Error: connect ECONNREFUSED 114.55.80.225:443
-      at Object.exports._errnoException (util.js:1020:11)
-      at exports._exceptionWithHostPort (util.js:1043:20)
-      at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1090:14)

@@ -11,7 +11,6 @@ class ArticlesScreen extends React.Component {
   }
 
   _renderItem = (item) => {
-    console.log(item);
     var txt = item.item.title;
     var intro = item.item.introduction;
     return (

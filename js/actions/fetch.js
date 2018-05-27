@@ -7,15 +7,17 @@ export const requestPosts = params => ({
   type: REQUEST_POSTS + "_" + params.type
 })
 
-export const receivePosts = (json, params) => ({
-  type: RECEIVE_POSTS + "_" + params.type,
-  state: json.state,
-  data: json.data
-})
+export const receivePosts = (json, params) => {
+  // console.log(json);
+  return {
+    type: RECEIVE_POSTS + "_" + params.type,
+    ...json
+  };
+}
 
 export const fetchPosts = params => dispatch => {
   dispatch(requestPosts(params));
   return fetch(params.url)
   .then(response => response.json())
-  .then(json => dispatch(receivePosts(json, params)));
+  .then(json => {dispatch(receivePosts(json, params));});
 }
