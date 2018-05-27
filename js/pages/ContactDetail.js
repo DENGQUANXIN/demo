@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Text, View,
+  Text, View, TextInput,
   StyleSheet, Dimensions
 } from 'react-native';
 import {connect} from 'react-redux';
@@ -8,22 +8,23 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 class ContactDetail extends React.Component {
   render() {
+    info = this.props.navigation.state.params.info;
     return (
       <View style={styles.container}>
         <View style={styles.header}>
           <View style={styles.editIconContainer}>
             <Icon style={styles.editIcon} name="pencil" size={30} color="#fff" />
-            <Icon style={styles.editIcon} name="star-outline" size={30} color="#fff" />
+            {info.isStar?<Icon style={styles.editIcon} name="star" size={30} color="#fff" />:<Icon style={styles.editIcon} name="star-outline" size={30} color="#fff" />}
           </View>
-          <Text style={styles.nameText}>猫眼餐</Text>
+          <Text style={styles.nameText}>{info.nickname}</Text>
         </View>
         <View style={styles.content}>
           <Text style={styles.infoName}>手机号</Text>
-          <Text style={styles.infoCont}>13880694409</Text>
+          <Text style={styles.infoCont}>{info.phone}</Text>
           <Text style={styles.infoName}>关系</Text>
-          <Text style={styles.infoCont}>亲友</Text>
+          <Text style={styles.infoCont}>{info.relation}</Text>
           <Text style={styles.infoName}>备注</Text>
-          <Text style={styles.infoCont}>孙子</Text>
+          <Text style={styles.infoCont}>{info.name}</Text>
         </View>
       </View>
     );

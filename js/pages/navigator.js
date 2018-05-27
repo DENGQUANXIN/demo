@@ -11,6 +11,7 @@ import ContactScreen from './ContactScreen';
 import ContactDetail from './ContactDetail';
 import HomeScreen from './HomeScreen';
 import UserScreen from './UserScreen';
+import EditInfo from './EditInfo';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const TabbarNavigator = TabNavigator(
@@ -94,6 +95,12 @@ const AppNavigator = StackNavigator(
       navigationOptions:({navigation}) => ({
         headerTitle:'联系人详情'
       }),
+    },
+    EditInfo: {
+      screen: EditInfo,
+      navigationOptions:({navigation}) => ({
+        headerTitle: '修改信息'
+      })
     }
   },
   {

@@ -187,7 +187,7 @@
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
-        sha1="f2cf527de8d0bd35d72088fafea02395ba4a9eec">
+        sha1="279750fed3c920d06351dbf32889c1b48203c7ad">
         <dex dex="/home/Operating/rn/demo/android/app/build/intermediates/pre-dexed/debug/demo-react-native-vector-icons-unspecified_7d2712d4a0a0de474b24601242c8603aad0706b0.jar" />
     </item>
     <item
